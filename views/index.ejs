@@ -1,0 +1,40 @@
+<%- include('./base/header.ejs') %>
+
+ 
+<div class="container my-5">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sr No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Course</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (let i = 0; i < records.length; i++) { %>
+    <tr>
+      <th scope="row"><%= i + 1 %></th>  
+  <td><%= records[i].name %></td>
+  <td><%= records[i].age %></td>
+  <td><%= records[i].course %></td>
+  <td><a href="/edit/<%= records[i]._id %>" class="btn btn-primary">Edit</a></td>
+  <td>
+    <form action="/delete/<%= records[i]._id %>" method="POST">
+      <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+  </td>
+</tr>
+     
+       
+    </tr>
+     <% } %>
+   
+    
+  </tbody>
+</table>
+</div>
+
+<%- include('./base/footer.ejs') %>
