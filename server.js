@@ -2,6 +2,9 @@ import express from 'express';
 import route from './routes/route.js';
 import connectDB from './db/db.js';
 import bodyParser from 'body-parser';
+import dotenv from "dotenv";
+dotenv.config();
+
 
 const DATABASEURL = process.env.DATABASEURL || 'mongodb://localhost:27017/studentdb';
 
@@ -16,7 +19,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 connectDB(DATABASEURL);
 
 app.use('/', route);
+app.get('/health', (req, res) => {
+    res.json({ status: "UP" });
+});
 
-app.listen(port, () => {
+
+app.listen(port, '0.0.0.0', () => {
     console.log(`Server is running : http://localhost:${port}`);
 });
+

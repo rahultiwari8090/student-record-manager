@@ -2,20 +2,13 @@ import mongoose from "mongoose";
 
 const connectDB = async (DATABASEURL) => {
   try {
-    const dbOption = {
-      dbName: "srm",
-    };
-
-    const response = await mongoose.connect(DATABASEURL, dbOption);
-
-    if (response) {
-      console.log("Database Connected");
-    } else {
-      console.log("Database not connected");
-    }
-
+    await mongoose.connect(DATABASEURL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("✅ MongoDB Connected Successfully");
   } catch (error) {
-    console.log("MongoDB Error:", error.message);
+    console.log("❌ MongoDB Connection Error:", error.message);
   }
 };
 
