@@ -1,4 +1,5 @@
 📘 Student Record Manager
+live URL:- https://student-record-manager-aiy0.onrender.com/
 
 A production-ready Node.js + Express + MongoDB backend application containerized using Docker, deployed on Render, monitored using Prometheus + Grafana, and automated with a GitHub Actions CI/CD pipeline.
 
